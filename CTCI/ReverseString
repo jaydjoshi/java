@@ -1,0 +1,29 @@
+package test.ctci.string;
+
+public class ReverseString {
+
+	public static String reverseAString(String str){
+		int len = str.length();
+		char[] charArr = str.toCharArray();
+		char temp;
+		len = charArr.length;
+		for (int i = 0; i < len/2; i++) {
+			temp = charArr[i];
+			charArr[i] = charArr[len-1-i];
+			charArr[len-1-i]= temp;
+			
+		}
+		str = new String(charArr);
+		return str;
+		
+	}
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println(reverseAString("abcdefghijk"));
+
+	}
+
+}
