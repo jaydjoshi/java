@@ -1,0 +1,52 @@
+package test.ctci.string;
+
+public class RemoveDuplicates {
+	
+	public static String removeFromString(String str){
+		
+		int len = str.length();
+		int i,j;
+		char val;
+		
+		for ( i = 0; i < len; i++) {
+			val = str.charAt(i);
+			for ( j = i+1; j < len; j++) {
+				if(val == str.charAt(j)){
+					str = str.substring(0, j)+str.substring(j+1, len);
+					len = str.length();
+				}
+			}
+		}
+		return str;
+		
+	}
+	
+	public static StringBuffer removeFromStringBuffer(StringBuffer str){
+		
+		int len = str.length();
+		int i,j;
+		char val;
+		
+		for ( i = 0; i < len; i++) {
+			val = str.charAt(i);
+			for ( j = i+1; j < len; j++) {
+				if(val == str.charAt(j)){
+					str.deleteCharAt(j);
+					len = str.length();
+				}
+			}
+		}
+		return str;
+		
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println(removeFromString("abcabcdefga"));
+		System.out.println(removeFromStringBuffer( new StringBuffer("abcabcdefga")));
+	}
+
+}
